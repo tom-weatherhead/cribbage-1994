@@ -1,0 +1,4 @@
+// cribbage.rc
+// (C) Copyright 1994 by Tom Weatherhead
+
+CribIcon ICON suits.ico
