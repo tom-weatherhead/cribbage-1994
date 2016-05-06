@@ -5,9 +5,11 @@
 #define NULL 0
 #endif
 
-#undef FALSE
-#undef TRUE
-typedef enum { FALSE, TRUE } bool;
+// #undef FALSE
+// #undef TRUE
+// typedef enum { FALSE, TRUE } bool;
+#define FALSE false
+#define TRUE true
 
 #define DECK_SIZE		52
 #define DEAL_SIZE		6
@@ -28,18 +30,18 @@ typedef unsigned short suit_type;
 typedef unsigned short face_type;
 
 class Card_Class {
-    public:
+public:
 	suit_type suit;
 	face_type face;
 
 	// void assign( suit_type, face_type );
-	char * suit_name( void );
+	const char * suit_name( void );
 	char * print_card( void );
 	unsigned int face_value( void );
 };
 
 class Hand_Class {
-    public:
+public:
 	Card_Class ** card;
 	unsigned int size;
 	bool is_crib;
@@ -54,12 +56,12 @@ class Hand_Class {
 };
 
 class Deck_Class {
-    private:
+private:
 	Card_Class card[DECK_SIZE];
 	unsigned int card_idx;
 
-    public:
+public:
 	Deck_Class( void );
 	void shuffle( void );
-        Card_Class * deal_one( void );
-};    	
+	Card_Class * deal_one( void );
+};

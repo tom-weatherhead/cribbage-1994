@@ -4,15 +4,16 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <time.h>
 #include "deck.h"
 
 
 // **** Card_Class members
 
 
-char * Card_Class::suit_name( void )
+const char * Card_Class::suit_name( void )
 {
-    char * rtn;
+    const char * rtn;
 
     switch( suit ) {
 	case HEART:	rtn = "Hearts";		break;
@@ -28,7 +29,7 @@ char * Card_Class::suit_name( void )
 
 char * Card_Class::print_card( void )
 {
-    static char rtn_str[15];
+    static char rtn_str[16]; // TW 2016/05/05 : "static" because the address of the variable is returned.  Not good.
     unsigned int len = 1;
 
     switch( face ) {

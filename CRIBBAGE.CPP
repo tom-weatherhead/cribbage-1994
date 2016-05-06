@@ -14,7 +14,7 @@
 typedef struct {
     Hand_Class * hand;
     unsigned int score;
-    char * name;
+    const char * name;
     bool go_flag;
 } player_data_type;
 
@@ -524,7 +524,7 @@ static void game( void )
 } // game()
 
 
-void main( void )
+int main( void )
 {
     char c;
 
@@ -540,4 +540,5 @@ void main( void )
 
     } while( c == 'y' );
 
+    return 0;
 } // main()
